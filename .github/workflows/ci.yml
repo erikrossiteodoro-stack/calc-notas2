@@ -1,21 +1,22 @@
 name: CI
-2
-3 on: [push, pull_request]
-4
-5 jobs:
-6 testa:
-7 runs-on: ubuntu-latest
-8 steps:
-9 - name: Baixar o codigo
-10 uses: actions/checkout@v4
-11
-12 - name: Instalar Python
-13 uses: actions/setup-python@v5
-14 with:
-15 python-version: "3.12"
-16
-17 - name: Instalar dependencias
-18 run: pip install -r requirements.txt
-19
-20 - name: Rodar testes
-21 run: pytest -v
+
+on: [push, pull_request]
+
+jobs:
+  testa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Rodar testes
+        run: pytest -v
